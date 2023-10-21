@@ -1,0 +1,15 @@
+{
+    "cookie": "填写你的P站Cookie",
+    "output": "D:/test/",
+    "proxy": {
+        "$mark": "如果不使用代理host请留空",
+        "host": "127.0.0.1",
+        "port": 7890,
+        "protocol": null,
+        "auth": {
+            "$mark": "代理认证",
+            "username": null,
+            "password": null
+        }
+    }
+}
