@@ -1,5 +1,6 @@
 const Queue = require('p-queue').default;
 const axios = require('axios').default;
+const SendNotify = require('./SendNotify.js');
 const queue_01 = new Queue({ concurrency: 3 });
 const queue_02 = new Queue({ concurrency: 3 }); // 下载队列
 
@@ -31,7 +32,6 @@ const proxy = config.proxy?.host ? config.proxy : null;
         const pages = await illust_pages(work.id);
         if (pages) {
           console.log('检查并下载', work.id, work.title, '共', pages.length, '页');
-          // 替换特殊字符为下划线
           const sanitizedTitle = work.title.replace(/[\/\\?%*:|"<>]/g, '_');
           const folder = path.join(output, sanitizedTitle);
           if (!fs.existsSync(folder)) await fs.promises.mkdir(folder);
@@ -43,12 +43,12 @@ const proxy = config.proxy?.host ? config.proxy : null;
     );
   } catch (error) {
     console.log(error);
+    SendNotify.sendEnterpriseWechatNotification('下载失败: ' + error);
   }
 })();
 
 async function download(url, folder, title, index) {
   try {
-    // 替换特殊字符为下划线
     const sanitizedTitle = title.replace(/[\/\\?%*:|"<>]/g, '_');
     const base = `${index + 1}${path.extname(url)}`;
     const file = path.join(folder, sanitizedTitle + '_' + base);
@@ -65,6 +65,7 @@ async function download(url, folder, title, index) {
     console.log('下载成功', base);
   } catch (error) {
     console.error('下载失败', error);
+    SendNotify.sendEnterpriseWechatNotification('下载失败: ' + error);
   }
 }
 
@@ -75,6 +76,7 @@ async function illust_pages(id) {
   });
   if (resp.data.error) {
     console.log(id, resp.data.message);
+    SendNotify.sendEnterpriseWechatNotification('下载失败: ' + resp.data.message);
     return null;
   }
   return resp.data.body;
