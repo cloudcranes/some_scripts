@@ -2,7 +2,7 @@
 
 这是一个用于从 Pixiv 网站下载用户收藏的图片的简单 Node.js 脚本。该脚本使用 Pixiv API 获取用户的收藏列表，并下载收藏中的图片到本地文件夹。在下载图片之前，脚本会检查本地文件夹中是否已经存在相同的图片，如果存在则跳过下载。
 
-原作者项目链接：https://github.com/qiangmouren/pixiv-favorite-download
+原作者项目链接：[pixiv-favorite-download](https://github.com/qiangmouren/pixiv-favorite-download)
 
 ## 如何使用
 
