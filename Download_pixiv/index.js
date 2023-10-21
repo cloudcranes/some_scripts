@@ -1,12 +1,11 @@
 const Queue = require('p-queue').default;
 const axios = require('axios').default;
-const SendNotify = require('./SendNotify.js');
-const queue_01 = new Queue({ concurrency: 3 });
-const queue_02 = new Queue({ concurrency: 3 }); // 下载队列
-
 const fs = require('fs');
 const path = require('path');
 const config = require('./config.json');
+
+const queue_01 = new Queue({ concurrency: 3 });
+const queue_02 = new Queue({ concurrency: 3 }); // 下载队列
 
 let instance;
 const output = path.resolve(config.output);
@@ -43,7 +42,6 @@ const proxy = config.proxy?.host ? config.proxy : null;
     );
   } catch (error) {
     console.log(error);
-    SendNotify.sendEnterpriseWechatNotification('下载失败: ' + error);
   }
 })();
 
@@ -65,7 +63,6 @@ async function download(url, folder, title, index) {
     console.log('下载成功', base);
   } catch (error) {
     console.error('下载失败', error);
-    SendNotify.sendEnterpriseWechatNotification('下载失败: ' + error);
   }
 }
 
@@ -76,7 +73,6 @@ async function illust_pages(id) {
   });
   if (resp.data.error) {
     console.log(id, resp.data.message);
-    SendNotify.sendEnterpriseWechatNotification('下载失败: ' + resp.data.message);
     return null;
   }
   return resp.data.body;
