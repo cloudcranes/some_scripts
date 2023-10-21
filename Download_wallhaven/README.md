@@ -28,7 +28,7 @@ save_folder = os.path.join('/ql/data/downloads/local-website/img', current_date)
 在项目文件夹中运行以下命令：
 
 ```bash
-python script.py
+python main.py
 ```
 
 脚本将会开始从Wallhaven的最新壁纸页面获取图片链接，并下载这些图片到指定的本地文件夹。
