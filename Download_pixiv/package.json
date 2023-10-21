@@ -1,0 +1,16 @@
+{
+  "name": "Download_pixiv",
+  "description": "Pixiv收藏图片下载",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qluser-alan/some_scripts/Download_pixiv"
+  },
+  "author": {
+    "name": "alanmaster",
+    "email": "git@qluser-alan"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "p-queue": "6.6.2"
+  }
+}
