@@ -24,6 +24,7 @@
 ## 示例
 
 ```bash
-export ikuuu="ck1&ck2&ck3"
+# ck格式 邮箱#密码
+export ikuuu="ck1@domain#123456&ck2@domain#123456"
 
 python3 ikuuu_checkin.py
