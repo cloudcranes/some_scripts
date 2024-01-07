@@ -11,5 +11,5 @@ ALIST_USER = ""
 ALIST_PASSWORD = ""
 ```
 
-排除目录名 log .git .github node_modules backups .pnpm-store
+排除目录名 log .git .github node_modules backups .pnpm-store \n
 备份目标目录 backups
