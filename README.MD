@@ -35,6 +35,6 @@
 
 ### 三、其他
 
-- Qinglong 自动备份程序
+- 青龙自动备份
   - 自动备份青龙面板文件，并将其上传至alist
   - 原项目：https://github.com/AKA-Cigma/qinglong-backup
