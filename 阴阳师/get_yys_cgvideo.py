@@ -7,7 +7,7 @@ import time
 os.makedirs("H:\\Download", exist_ok=True)
 
 # 用于保存已下载视频的信息的文本文件
-downloaded_videos_file = "E:\\Download\\downloaded_videos.txt"
+downloaded_videos_file = "H:\\Download\\downloaded_videos.txt"
 
 # 如果已下载视频信息的文件存在，从文件中读取已下载视频的名称
 downloaded_video_names = set()
