@@ -55,7 +55,7 @@ def checkin(name, token):
         if imfo_1['mission']['credit'] == 0:
             log_messages += f"开始检查第[{i+1}]个帐号 {name} 签到\n还未签到 开始签到\n"
             imfo_2 = json.loads(requests.post(url=sign_url, headers=sign_headers).text)
-            log_messages += f"签到成功 获得 {str(imfo_2)} 积分\n总积分：{str(imfo_1['mission']['my_credit'])}"
+            log_messages += f"签到成功 获得 {str(imfo_2)} 积分\n总积分：{str(imfo_2['mission']['credit'])}"
         else:
             log_messages += f"帐号[{i + 1}] {name}\n今天已经签到 \n获得 {str(imfo_1['mission']['credit'])} 积分\n总积分：{str(imfo_1['mission']['my_credit'])}"
         print(log_messages)
@@ -72,7 +72,7 @@ if __name__ == "__main__":
 
     # 青龙变量 kjwj_info（邮箱#密码）多账号&隔开
     kjwj_info = os.environ.get("kjwj_info")
-    accounts = kjwj_info.replace('&', '\n')。split('\n')
+    accounts = kjwj_info.replace('&', '\n').split('\n')
     print(f"检测到{len(accounts)}个ck记录\n开始 科技玩家 签到\n")
     msg += f"检测到{len(accounts)}个ck记录\n开始 科技玩家 签到\n"
 
