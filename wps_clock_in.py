@@ -6,9 +6,9 @@ cron: 10 9 * * *
 new Env('WPS打卡活动');
 '''
 
-# 需要参数：wps_sid 
+# 需要参数：wps_ck
 # 获取方式 wps主页或者微信小程序【我的WPS超级会员】
-# 抓取域名 *.wps.cn
+# 抓取域名 *.wps.cn 下的wps_sid参数
 
 import json
 import requests
