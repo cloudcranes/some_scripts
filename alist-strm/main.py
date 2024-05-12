@@ -8,15 +8,15 @@ from pathlib import Path
 import httpx
 
 # 从环境变量读取配置参数
-alist_scan_path: str = os.getenv('ALIST_SCAN_PATH', '/')
-alist_server_url = os.getenv('ALIST_SERVER_URL', 'http://192.168.1.1:5244')
-alist_server_token = os.getenv('ALIST_SERVER_TOKEN',
+alist_scan_path: str = os.getenv('ALIST_SCAN_PATH'， '/')
+alist_server_url = os.getenv('ALIST_SERVER_URL'， 'http://192.168.1.1:5244')
+alist_server_token = os.getenv('ALIST_SERVER_TOKEN'，
                                'alist-xxxxx')
-output_dir = os.getenv('OUTPUT_DIR', './link')
-webdav_url = os.getenv('WEBDAV_URL', 'http://192.168.1.1:5244/dav')
+output_dir = os.getenv('OUTPUT_DIR'， './link')
+webdav_url = os.getenv('WEBDAV_URL'， 'http://192.168.1.1:5244/dav')
 
 # 日志配置
-logging.basicConfig(level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
+logging。basicConfig(level=logging.ERROR， format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 # 中文日志翻译
@@ -32,7 +32,7 @@ def translate_log_level(log_level) -> str:
     return translated_log_messages.get(log_level, log_level)
 
 
-class TranslatedLogHandler(logging.Handler):
+class TranslatedLogHandler(logging。Handler):
     def __init__(self):
         super().__init__()
         self.terminator = '\n'
